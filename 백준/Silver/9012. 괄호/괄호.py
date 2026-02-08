@@ -1,24 +1,25 @@
 import sys
 T = int(sys.stdin.readline())
-ps_list = [sys.stdin.readline() for _ in range(T)]
-for ps in ps_list: # ps : (())())
+for _ in range(T):
+    ps = sys.stdin.readline().rstrip()
+    stack = []
     is_vps = True
-    count = 0
-    for s in ps: # s -> "("
+    for s in ps: # ps : (())())   => s : "("
         if s == '(':
-            count += 1
+            stack.append(s)
         elif s == ')':
-            if count > 0:
-                count -= 1
+            if stack:
+                stack.pop()
             else:
                 is_vps = False
                 break
-
-
-    if count != 0:
+    
+    if stack:
         is_vps = False
-
+    
     if is_vps:
         print("YES")
     else:
         print("NO")
+
+
