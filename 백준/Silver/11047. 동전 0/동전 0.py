@@ -2,7 +2,6 @@ import sys
 N, K = map(int, sys.stdin.readline().split())
 N_list = [int(sys.stdin.readline().rstrip()) for _ in range(N)]
 count = 0 # 동전 개수
-is_max = True
 max_n_count = 0
 lower_K = []
 
